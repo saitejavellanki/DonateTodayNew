@@ -14,7 +14,6 @@ import Footer from '../footer/Footer';
 const MotionBox = motion(Box);
 
 const CountUp = ({ end, duration }) => {
-  
   const [count, setCount] = useState(0);
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -24,7 +23,7 @@ const CountUp = ({ end, duration }) => {
   useEffect(() => {
     let interval;
     if (inView) {
-      const stepTime = Math.abs(Math.floor(duration / end));
+      const stepTime = Math.abs(Math.floor(2000 / end)); // Changed to 2000ms (2 seconds)
       interval = setInterval(() => {
         setCount(prevCount => {
           const newCount = prevCount + 1;
@@ -38,7 +37,7 @@ const CountUp = ({ end, duration }) => {
       setCount(0);
     }
     return () => clearInterval(interval);
-  }, [end, duration, inView]);
+  }, [end, inView]);
 
   return <span ref={ref}>{count.toLocaleString()}</span>;
 };
@@ -105,7 +104,6 @@ const StatsPage = () => {
   }, [controls, inView]);
 
   return (
-    
     <Container bg="gray.200"maxW="container.xl" py={10} ref={ref}>
       <motion.div
         initial="hidden"
@@ -125,8 +123,6 @@ const StatsPage = () => {
         <StatBox title="Partnerships" value={15} delay={0.6} />
       </SimpleGrid>
     </Container>
-    
-    
   );
 };
 

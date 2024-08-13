@@ -14,7 +14,7 @@ const founders = [
   },
   {
     name: "Vyshnav Jambhapuram",
-    role: "Co-Founder",
+    role: "Co-Founder / Lead Designer",
     image: vys,
     bio: "Dedicated to transforming charitable giving with cutting-edge solutions. My goal is to streamline the donation process and maximize the impact of every gift."
   }

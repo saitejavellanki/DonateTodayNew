@@ -1,16 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDgoBGBn81cEHN8vkMfhEelY7gk_H3u2oY",
-  authDomain: "donation-abc86.firebaseapp.com",
-  projectId: "donation-abc86",
-  storageBucket: "donation-abc86.appspot.com",
-  messagingSenderId: "775299662296",
-  appId: "1:775299662296:web:38d6e35778aa9e37e972ad",
-  measurementId: "G-XG56TPCNKD"
+  apiKey: "AIzaSyCqXoKKuTETlOT31f8z_jjUSgIvT5AvirE",
+  authDomain: "donatetoday-2a5f6.firebaseapp.com",
+  projectId: "donatetoday-2a5f6",
+  storageBucket: "donatetoday-2a5f6.appspot.com",
+  messagingSenderId: "687975052881",
+  appId: "1:687975052881:web:ec66a796fbb859f469ea70",
+  measurementId: "G-XM4JG297G4"
 };
+
+
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);

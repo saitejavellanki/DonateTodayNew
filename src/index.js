@@ -7,7 +7,7 @@ import './components/firebase/firebase';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  //
+  
   <React.StrictMode>
     <ChakraProvider>
       <App />

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import { Box, Button, FormControl, FormLabel, Input, Select, Text, VStack, HStack, FormErrorMessage, useToast, Grid, GridItem, Flex, Spacer, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Input, Select, Text, VStack, HStack, FormErrorMessage, useToast, Grid, GridItem, Flex, useBreakpointValue } from '@chakra-ui/react';
 import * as Yup from 'yup';
 import { db } from '../firebase/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import Confetti from 'react-confetti';
+import SuccessPage from '../tick/SucessPage'; // Assuming you have this component in a separate file
 
 // Schema for validation
 const DonationSchema = Yup.object().shape({
   firstName: Yup.string().required('First Name is required'),
   lastName: Yup.string().required('Last Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
+  phoneNumber: Yup.string().required('Phone Number is required'),
   donationType: Yup.string().required('Donation Type is required'),
   donationItem: Yup.string().required('Donation Item is required'),
   amount: Yup.number().when('donationItem', {
@@ -26,12 +28,14 @@ const DonationSchema = Yup.object().shape({
 function Make() {
   const [showAmount, setShowAmount] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [showSuccessPage, setShowSuccessPage] = useState(false);
   const toast = useToast();
   
   const initialValues = {
     firstName: '',
     lastName: '',
     email: '',
+    phoneNumber: '', // Initialize phoneNumber field
     donationType: '',
     donationItem: '',
     amount: '',
@@ -69,7 +73,8 @@ function Make() {
       setStatus('Donation submitted successfully!');
       resetForm();
       setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 10000); // Hide confetti after 10 seconds
+      setTimeout(() => setShowConfetti(false), 10000);
+      setShowSuccessPage(true); // Show the success page
     } catch (error) {
       console.error('Error submitting donation:', error);
       setStatus(`Error submitting donation: ${error.message}`);
@@ -88,6 +93,10 @@ function Make() {
     base: '1fr',
     md: '1fr 300px',
   });
+
+  if (showSuccessPage) {
+    return <SuccessPage />;
+  }
 
   return (
     <Flex direction="column" minHeight="100vh">
@@ -133,6 +142,16 @@ function Make() {
                         </FormLabel>
                         <Field as={Input} id="email" name="email" type="email" placeholder="Email" width="100%" />
                         <FormErrorMessage>{errors.email}</FormErrorMessage>
+                      </HStack>
+                    </FormControl>
+
+                    <FormControl isInvalid={touched.phoneNumber && errors.phoneNumber}>
+                      <HStack spacing={{ base: 2, md: 4 }}>
+                        <FormLabel htmlFor="phoneNumber" w={{ base: '30%', md: '20%' }}>
+                          Phone Number
+                        </FormLabel>
+                        <Field as={Input} id="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone Number" width="100%" />
+                        <FormErrorMessage>{errors.phoneNumber}</FormErrorMessage>
                       </HStack>
                     </FormControl>
 
@@ -250,8 +269,8 @@ function Make() {
           </Box>
         </GridItem>
         <GridItem>
-          <Flex direction="column" h="100%" justify="flex-end">
-            <Box p={4} border="1px" borderColor="gray.200" borderRadius="md">
+          <Flex direction="column" h="100%" justify="flex-start" align="stretch">
+            <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" mb={4}>
               <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="bold" mb={2}>
                 How It Works
               </Text>

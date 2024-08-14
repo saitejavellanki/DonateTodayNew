@@ -53,28 +53,7 @@ const Footer = () => {
             
           </Stack>
 
-          <Stack align={'flex-start'}>
-            <ListHeader>Stay up to date</ListHeader>
-            <Stack direction={'row'}>
-              <Input
-                placeholder={'Your email address'}
-                bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-                border={0}
-                _focus={{
-                  bg: 'whiteAlpha.300',
-                }}
-              />
-              <Button
-                bg={useColorModeValue('green.400', 'green.800')}
-                color={useColorModeValue('white', 'gray.800')}
-                _hover={{
-                  bg: 'green.600',
-                }}
-              >
-                Subscribe
-              </Button>
-            </Stack>
-          </Stack>
+          
         </SimpleGrid>
       </Container>
 
@@ -97,8 +76,7 @@ const Footer = () => {
             <IconButton aria-label="LinkedIn" icon={<FaLinkedin />} onClick={() => window.open('https://www.linkedin.com/your-profile', '_blank')} />
             <IconButton aria-label="Instagram" icon={<FaInstagram />} onClick={() => window.open('https://www.instagram.com/your-profile', '_blank')} />
             <IconButton aria-label="Email" icon={<FaEnvelope />} onClick={() => window.location.href = 'mailto:donatetoday613@gmail.com'} />
-            <IconButton aria-label="Twitter" icon={<FaTwitter />} onClick={() => window.open('https://twitter.com/your-profile', '_blank')} />
-            <IconButton aria-label="Facebook" icon={<FaFacebook />} onClick={() => window.open('https://facebook.com/your-profile', '_blank')} />
+            
           </Stack>
         </Container>
       </Box>

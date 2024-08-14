@@ -19,7 +19,8 @@ function Admin() {
       const donationsList = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
-        timestamp: doc.data().timestamp?.toDate().toLocaleString()
+        timestamp: doc.data().timestamp?.toDate().toLocaleString(),
+        recordType: doc.data().amount ? 'Cash' : 'Donation'
       }));
       setDonations(donationsList);
     };
@@ -57,6 +58,17 @@ function Admin() {
     }
   };
 
+  const getRecordTypeColor = (recordType) => {
+    switch (recordType) {
+      case 'Cash':
+        return 'green.300'; // Color for Cash
+      case 'Donation':
+        return 'blue.300'; // Color for Donation
+      default:
+        return 'gray.300'; // Default color
+    }
+  };
+
   return (
     <Box maxW={['100%', '100%', '1200px']} mx="auto" p={[2, 4, 6]}>
       <Text fontSize={['xl', '2xl']} mb={4}>Donation Panel</Text>
@@ -78,8 +90,10 @@ function Admin() {
         <Table variant="simple" size={['sm', 'md', 'lg']} minW="800px">
           <Thead>
             <Tr>
+              <Th>Record Type</Th> {/* New Column for Record Type */}
               <Th>Name</Th>
               <Th>Email</Th>
+              <Th>Phone Number</Th>
               <Th>Donation Type</Th>
               <Th>Donation Item</Th>
               <Th>Amount</Th>
@@ -93,8 +107,20 @@ function Admin() {
           <Tbody>
             {filteredDonations.map((donation) => (
               <Tr key={donation.id}>
+                <Td>
+                  <Box
+                    bg={getRecordTypeColor(donation.recordType)}
+                    color="white"
+                    p={2}
+                    borderRadius="md"
+                    textAlign="center"
+                  >
+                    {donation.recordType}
+                  </Box>
+                </Td>
                 <Td>{`${donation.firstName} ${donation.lastName}`}</Td>
                 <Td>{donation.email}</Td>
+                <Td>{donation.phoneNumber || 'N/A'}</Td>
                 <Td>{donation.donationType}</Td>
                 <Td>{donation.donationItem}</Td>
                 <Td>{donation.amount || 'N/A'}</Td>

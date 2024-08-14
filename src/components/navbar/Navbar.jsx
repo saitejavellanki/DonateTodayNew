@@ -8,7 +8,7 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement] = useState('right');
 
-  const NavItems = ['Services', 'Admin', 'Contact Us', 'Our Team'];
+  const NavItems = ['Services', 'Contact Us', 'Our Team'];
 
   const NavLinks = ({ mobile = false, onClose }) => (
     <>

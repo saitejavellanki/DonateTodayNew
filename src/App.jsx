@@ -8,8 +8,7 @@ import Navbar from './components/navbar/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Services from './components/services/Services';
 import Make from './components/donate/Make';
-import CommunityGuidelines from './components/community/Community';
-import HelpCenter from './components/community/Help';
+import ProtectedAdmin from './components/admin/protectedAdmin';
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
           <Route path="/contact-us" element={ <Contactus/> }/>
           <Route path="/donate" element={ <Donate/> }/>
           <Route path="/make" element={ <Make/> }/>
-          <Route path ="/admin" element={<Admin/>}/>
+          <Route path="/admin" element={<ProtectedAdmin/>}/>
           <Route path="/our-team" element={ <FoundersPage/> }/>
           <Route path="/services" element={ <Services/> }/>
           <Route path="/community" element={ <CommunityGuidelines/> }/>

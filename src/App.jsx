@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Services from './components/services/Services';
 import Make from './components/donate/Make';
 import ProtectedAdmin from './components/admin/protectedAdmin';
+import CommunityGuidelines from './components/community/Community';
+import HelpCenter from './components/community/Help';
 
 function App() {
   return (

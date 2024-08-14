@@ -1,40 +1,31 @@
 import React from 'react';
 import { Box, Container, SimpleGrid, Image, Text, Heading, VStack } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import food from "../../Assests/food.jpg"
+import dist from "../../Assests/IMG_8165.jpg"
+import comm from "../../Assests/community.jpg"
 
 const MotionBox = motion(Box);
 const MotionImage = motion(Image);
 
 const impactData = [
+  
   {
-    image: '/path/to/education.jpg',
-    title: 'Education Support',
-    description: 'Provided educational materials to 1000+ underprivileged children.'
-  },
-  {
-    image: '/path/to/healthcare.jpg',
+    image: dist,
     title: 'Healthcare Initiatives',
-    description: 'Funded medical treatments for 500+ patients in need.'
+    description: 'Funded medical treatments for patients in need.'
   },
   {
-    image: '/path/to/food.jpg',
+    image: food,
     title: 'Food Distribution',
-    description: 'Distributed meals to 5000+ families during crisis situations.'
+    description: 'Distributed meals to 500+ families during crisis situations.'
   },
+ 
+  
   {
-    image: '/path/to/water.jpg',
-    title: 'Clean Water Projects',
-    description: 'Installed water purification systems in 20+ communities.'
-  },
-  {
-    image: '/path/to/disaster.jpg',
-    title: 'Disaster Relief',
-    description: 'Provided immediate assistance to 2000+ individuals affected by natural disasters.'
-  },
-  {
-    image: '/path/to/community.jpg',
+    image: comm,
     title: 'Community Development',
-    description: 'Supported 50+ local initiatives for sustainable community growth.'
+    description: 'Supported local initiatives for sustainable community growth.'
   }
 ];
 

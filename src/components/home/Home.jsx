@@ -1,34 +1,40 @@
 import React from 'react';
-import { Box, Text, Button, VStack, HStack, Container, Flex } from '@chakra-ui/react';
+import { Box, Text, Button, VStack, Container, Flex, useMediaQuery } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
-import Contactus from '../contact/Contactus';
+import Navbar from '../navbar/Navbar';
 import AboutUs from '../aboutUs/AboutUs';
 import StatsPage from '../stats/StatsPage';
 import Footer from '../footer/Footer';
-import FoundersPage from '../founders/Founders';
 import OurImpact from '../impact/Impact';
 
 const Home = () => {
-  
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+
   return (
     <>
-      <Box className="home-page" minHeight="100vh" position="relative">
-        <Flex direction="column" height="100%">
-          <Container maxW="container.xl" flex="1" display="flex" flexDirection="column" justifyContent="center" mb={-10}>
-            <VStack spacing={12} align="center">
+      
+      <Box className="home-page" minHeight="100vh">
+        <Flex direction="column" height="100%" pt={[16, 20, 24]} px={[4, 6, 8]}>
+          <Container maxW="container.xl" flex="1" display="flex" flexDirection="column" justifyContent="center">
+            <VStack spacing={[8, 12]} align="center">
               <Text
                 className='text-container'
-                fontSize={["3xl", "4xl", "5xl", "70px"]}
+                fontSize={["3xl", "4xl", "5xl", "6xl"]}
                 fontFamily="'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
                 color="white"
                 textAlign="center"
-                px={4}
               >
                 Small Acts, Big Impact.
               </Text>
-              <HStack spacing={8} className="button-container">
-                <NavLink to="/donate">
+              <Flex 
+                className="button-container" 
+                justifyContent="center"
+                flexDirection={isLargerThan768 ? "row" : "column"}
+                width="100%"
+                gap={4}
+              >
+                <NavLink to="/donate" style={{ width: isLargerThan768 ? 'auto' : '100%' }}>
                   <Button
                     className="button button-blue"
                     size="lg"
@@ -39,13 +45,14 @@ const Home = () => {
                     color="white"
                     bg="#a01010"
                     borderRadius="25px"
-                    _hover={{ transform: "scale(1.2)" }}
+                    _hover={{ transform: "scale(1.05)" }}
                     transition="transform 0.3s"
+                    width={isLargerThan768 ? 'auto' : '100%'}
                   >
                     Donate Now
                   </Button>
                 </NavLink>
-                <NavLink to="/make">
+                <NavLink to="/make" style={{ width: isLargerThan768 ? 'auto' : '100%' }}>
                   <Button
                     className="button button-white btn"
                     size="lg"
@@ -56,13 +63,14 @@ const Home = () => {
                     color="black"
                     bg="white"
                     borderRadius="25px"
-                    _hover={{ transform: "scale(1.2)" }}
+                    _hover={{ transform: "scale(1.05)" }}
                     transition="transform 0.3s"
+                    width={isLargerThan768 ? 'auto' : '100%'}
                   >
                     Make a Wish
                   </Button>
                 </NavLink>
-              </HStack>
+              </Flex>
             </VStack>
           </Container>
           
@@ -70,14 +78,14 @@ const Home = () => {
             bg="rgba(255, 255, 255, 0.7)"
             borderRadius="xl"
             boxShadow="xl"
-            p={8}
+            p={[4, 6, 8]}
             maxWidth="800px"
-            width="90%"
+            width={["95%", "90%", "80%"]}
             mx="auto"
-            mb={20}
+            my={[8, 12]}
           >
             <Text
-              fontSize={["md", "lg", "xl"]}
+              fontSize={["sm", "md", "lg"]}
               fontWeight="medium"
               color="gray.700"
               lineHeight="1.8"

@@ -3,6 +3,7 @@ import { Box, Container, Heading, Text, Image, SimpleGrid, VStack } from '@chakr
 import Footer from '../footer/Footer';
 import sai from "../../Assests/21BCB7042_Sai Teja Vellanki (1).png";
 import vys from "../../Assests/IMG-20240620-WA0005.jpg";
+import palla from "../../Assests/WhatsApp Image 2024-08-14 at 12.42.46 AM.jpeg"
 
 
 const founders = [
@@ -34,7 +35,7 @@ const teamMembers = [
   {
     name: "Team Member 3",
     role: "Marketing Specialist",
-    image: "",
+    image: palla,
   }
 ];
 

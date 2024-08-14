@@ -70,15 +70,13 @@ export const Contactus = () => {
               <Image src={logo} alt="Company Logo" maxWidth="80px" />
               
               <HStack spacing={4}>
-                <Link href="https://www.instagram.com/yourcompany" isExternal>
+                <Link href="https://www.instagram.com/donatetoday984/" isExternal>
                   <Icon as={FaInstagram} boxSize={5} />
                 </Link>
-                <Link href="https://www.linkedin.com/company/yourcompany" isExternal>
+                <Link href="https://www.linkedin.com/company/donatetoday/?viewAsMember=true" isExternal>
                   <Icon as={FaLinkedin} boxSize={5} />
                 </Link>
-                <Link href="https://twitter.com/yourcompany" isExternal>
-                  <Icon as={FaTwitter} boxSize={5} />
-                </Link>
+                
               </HStack>
 
               <VStack align="start" spacing={2}>

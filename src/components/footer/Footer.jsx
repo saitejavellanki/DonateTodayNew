@@ -15,6 +15,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { FaLinkedin, FaInstagram, FaEnvelope, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const ListHeader = ({ children }) => {
   return (
@@ -34,22 +35,19 @@ const Footer = () => {
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About Us</Link>
-            <Link href={'#'}>Services</Link>
+            <Link href={'#'}></Link>
+            <Link href={'#'}></Link>
+            <NavLink to="/our-team" >About Us</NavLink>
+            <NavLink to="/services" >Services</NavLink>
+            <NavLink to="/contact-us" >Contact Us</NavLink>
             
-            <Link href={'#'}>Contact Us</Link>
           </Stack>
 
           <Stack align={'flex-start'}>
             <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>+91 9652553176</Link>
-            <Link href={'#'}>Community Guidelines</Link>
-          </Stack>
-
-          <Stack align={'flex-start'}>
-            <ListHeader>Legit</ListHeader>
-            <Link href={'#'}>Policy</Link>
+            <NavLink to="/helpcenter" >Help Center</NavLink>
+           
+            <NavLink to="/community" >Community Guidelines</NavLink>
             
           </Stack>
 
@@ -73,8 +71,8 @@ const Footer = () => {
         >
           <Text>© 2024 DonateToday. All rights reserved</Text>
           <Stack direction={'row'} spacing={6}>
-            <IconButton aria-label="LinkedIn" icon={<FaLinkedin />} onClick={() => window.open('https://www.linkedin.com/your-profile', '_blank')} />
-            <IconButton aria-label="Instagram" icon={<FaInstagram />} onClick={() => window.open('https://www.instagram.com/your-profile', '_blank')} />
+            <IconButton aria-label="LinkedIn" icon={<FaLinkedin />} onClick={() => window.open('https://www.linkedin.com/company/donatetoday/?viewAsMember=true', '_blank')} />
+            <IconButton aria-label="Instagram" icon={<FaInstagram />} onClick={() => window.open('https://www.instagram.com/donatetoday984/', '_blank')} />
             <IconButton aria-label="Email" icon={<FaEnvelope />} onClick={() => window.location.href = 'mailto:donatetoday613@gmail.com'} />
             
           </Stack>

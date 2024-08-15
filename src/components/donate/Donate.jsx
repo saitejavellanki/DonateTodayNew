@@ -17,7 +17,10 @@ const DonationSchema = Yup.object().shape({
   donationItem: Yup.string().required('Donation Item is required'),
   amount: Yup.number().when('donationItem', {
     is: 'money',
-    then: (schema) => schema.positive('Amount must be positive').required('Amount is required'),
+    then: (schema) => schema
+      .min(100, 'Amount must be at least 100')
+      .positive('Amount must be positive')
+      .required('Amount is required'),
     otherwise: (schema) => schema.notRequired(),
   }),
   dependency: Yup.string().required('Please select a cause'),
@@ -176,8 +179,11 @@ function Donate() {
                           <FormLabel htmlFor="amount" w="20%">
                             Amount
                           </FormLabel>
-                          <Field as={Input} id="amount" name="amount" type="number" min="1" step="0.01" placeholder="Amount" width="100%" />
+                          <Field as={Input} id="amount" name="amount" type="number" min="100" step="0.01" placeholder="Amount" width="100%" />
                         </HStack>
+                        <Text fontSize="sm" color="red.500" mt={2}>
+                          Amount must be at least 100.
+                        </Text>
                       </FormControl>
                     )}
 

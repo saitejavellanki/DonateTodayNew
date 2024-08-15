@@ -13,20 +13,17 @@ const DonationSchema = Yup.object().shape({
   lastName: Yup.string().required('Last Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   phoneNumber: Yup.string().required('Phone Number is required'),
-  donationType: Yup.string().required('Donation Type is required'),
   donationItem: Yup.string().required('Donation Item is required'),
-  amount: Yup.number().when('donationItem', {
-    is: 'money',
-    then: (schema) => schema.positive('Amount must be positive').required('Amount is required'),
-    otherwise: (schema) => schema.notRequired(),
-  }),
+  amount: Yup.number()
+    .min(100, 'Amount must be at least 100')
+    .positive('Amount must be positive')
+    .required('Amount is required'),
   dependency: Yup.string().required('Please select a cause'),
   occasion: Yup.string().optional(),
   photo: Yup.mixed().nullable().optional(),
 });
 
 function Make() {
-  const [showAmount, setShowAmount] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showSuccessPage, setShowSuccessPage] = useState(false);
   const toast = useToast();
@@ -35,8 +32,7 @@ function Make() {
     firstName: '',
     lastName: '',
     email: '',
-    phoneNumber: '', // Initialize phoneNumber field
-    donationType: '',
+    phoneNumber: '',
     donationItem: '',
     amount: '',
     dependency: '',
@@ -155,21 +151,6 @@ function Make() {
                       </HStack>
                     </FormControl>
 
-                    <FormControl isInvalid={touched.donationType && errors.donationType}>
-                      <HStack spacing={{ base: 2, md: 4 }}>
-                        <FormLabel htmlFor="donationType" w={{ base: '30%', md: '20%' }}>
-                          Donation Type
-                        </FormLabel>
-                        <Field as={Select} id="donationType" name="donationType" width="100%">
-                          <option value="">Select a donation type</option>
-                          <option value="oneTime">One-time donation</option>
-                          <option value="monthly">Monthly donation</option>
-                          <option value="annual">Annual donation</option>
-                        </Field>
-                        <FormErrorMessage>{errors.donationType}</FormErrorMessage>
-                      </HStack>
-                    </FormControl>
-
                     <FormControl isInvalid={touched.donationItem && errors.donationItem}>
                       <HStack spacing={{ base: 2, md: 4 }}>
                         <FormLabel htmlFor="donationItem" w={{ base: '30%', md: '20%' }}>
@@ -180,10 +161,6 @@ function Make() {
                           id="donationItem"
                           name="donationItem"
                           width="100%"
-                          onChange={(e) => {
-                            setFieldValue('donationItem', e.target.value);
-                            setShowAmount(e.target.value === 'money');
-                          }}
                         >
                           <option value="">Select what you want to donate</option>
                           <option value="money">Money</option>
@@ -195,17 +172,18 @@ function Make() {
                       </HStack>
                     </FormControl>
 
-                    {showAmount && (
-                      <FormControl isInvalid={touched.amount && errors.amount}>
-                        <HStack spacing={{ base: 2, md: 4 }}>
-                          <FormLabel htmlFor="amount" w={{ base: '30%', md: '20%' }}>
-                            Amount
-                          </FormLabel>
-                          <Field as={Input} id="amount" name="amount" type="number" min="1" step="0.01" placeholder="Amount" width="100%" />
-                          <FormErrorMessage>{errors.amount}</FormErrorMessage>
-                        </HStack>
-                      </FormControl>
-                    )}
+                    <FormControl isInvalid={touched.amount && errors.amount}>
+                      <HStack spacing={{ base: 2, md: 4 }}>
+                        <FormLabel htmlFor="amount" w={{ base: '30%', md: '20%' }}>
+                          Amount
+                        </FormLabel>
+                        <Field as={Input} id="amount" name="amount" type="number" min="100" step="0.01" placeholder="Amount" width="100%" />
+                        <FormErrorMessage>{errors.amount}</FormErrorMessage>
+                      </HStack>
+                      <Text color="red.500" mt={1}>
+                        Amount must be at least 100.
+                      </Text>
+                    </FormControl>
 
                     <FormControl isInvalid={touched.dependency && errors.dependency}>
                       <HStack spacing={{ base: 2, md: 4 }}>
@@ -279,6 +257,17 @@ function Make() {
               </Text>
               <Text fontSize={{ base: 'sm', md: 'md' }}>
                 Your donation not only celebrates your special moment but also brings joy to those in need. Thank you for making a difference!
+              </Text>
+            </Box>
+            <Box p={4} border="1px" borderColor="gray.200" borderRadius="md">
+              <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight="bold" mb={2}>
+                Plans We Offer
+              </Text>
+              <Text fontSize={{ base: 'sm', md: 'md' }} mb={2}>
+                Veg Meals: ₹80 per plate
+              </Text>
+              <Text fontSize={{ base: 'sm', md: 'md' }}>
+                Non-Veg Meals: ₹150 per plate
               </Text>
             </Box>
           </Flex>

@@ -34,7 +34,7 @@ const Home = () => {
                 width="100%"
                 gap={4}
               >
-                <NavLink to="/donate" style={{ width: isLargerThan768 ? 'auto' : '100%' }}>
+                <NavLink to="/intro" style={{ width: isLargerThan768 ? 'auto' : '100%' }}>
                   <Button
                     className="button button-blue"
                     size="lg"
@@ -52,7 +52,7 @@ const Home = () => {
                     Donate Now
                   </Button>
                 </NavLink>
-                <NavLink to="/make" style={{ width: isLargerThan768 ? 'auto' : '100%' }}>
+                <NavLink to="/makeIntro" style={{ width: isLargerThan768 ? 'auto' : '100%' }}>
                   <Button
                     className="button button-white btn"
                     size="lg"

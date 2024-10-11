@@ -9,36 +9,36 @@ import raj from "../../Assests/rajesh.jpg"
 
 
 const founders = [
-  {
-    name: "Sai Teja Vellanki",
-    role: "Co-Founder / Technical Director",
-    image: sai,
-    bio: "As co-founder of DonateToday, I'm committed to revolutionizing philanthropy through innovative technology. My focus is on making giving easier and more impactful for everyone involved."
-  },
-  {
-    name: "Vyshnav Jambhapuram",
-    role: "Co-Founder / Lead Designer",
-    image: vys,
-    bio: "Dedicated to transforming charitable giving with cutting-edge solutions. My goal is to streamline the donation process and maximize the impact of every gift."
-  }
+  // {
+  //   name: "Sai Teja Vellanki",
+  //   role: "Co-Founder / Technical Director",
+  //   image: sai,
+  //   bio: "As co-founder of DonateToday, I'm committed to revolutionizing philanthropy through innovative technology. My focus is on making giving easier and more impactful for everyone involved."
+  // },
+  // {
+  //   name: "Vyshnav Jambhapuram",
+  //   role: "Co-Founder / Lead Designer",
+  //   image: vys,
+  //   bio: "Dedicated to transforming charitable giving with cutting-edge solutions. My goal is to streamline the donation process and maximize the impact of every gift."
+  // }
 ];
 
 const teamMembers = [
-  {
-    name: "Ambati Niranjan",
-    role: "Developer",
-    image: nir,
-  },
-  {
-    name: "Rajesh kumar",
-    role: "Designer",
-    image: raj,
-  },
-  {
-    name: "Palla Suhaas",
-    role: "Marketing Specialist",
-    image: palla,
-  }
+  // {
+  //   name: "Ambati Niranjan",
+  //   role: "Developer",
+  //   image: nir,
+  // },
+  // {
+  //   name: "Rajesh kumar",
+  //   role: "Designer",
+  //   image: raj,
+  // },
+  // {
+  //   name: "Palla Suhaas",
+  //   role: "Marketing Specialist",
+  //   image: palla,
+  // }
 ];
 
 const FoundersPage = () => {

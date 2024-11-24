@@ -15,6 +15,8 @@ import DonationIntro from './components/donate/DonationIntro';
 import TermsAndConditions from './components/miss/Terms';
 import MakeIntro from './components/donate/MakeIntro';
 import TermsAnd from './components/miss/TermsMake';
+import ExperiencePage from './experience';
+import Panels from './panel';
 
 function App() {
   return (
@@ -22,22 +24,23 @@ function App() {
     <div>
       <BrowserRouter>
       
-      <Navbar/>
+      {/* <Navbar/> */}
          <Routes>
-          <Route path="/" element={ <Home/> }/>
+         <Route path="/" element={<Panels />} />
+         <Route path="/experiences/:panelId" element={<ExperiencePage />} />
           
-          <Route path="/contact-us" element={ <Contactus/> }/>
+          {/* <Route path="/contact-us" element={ <Contactus/> }/>
           <Route path="/donate" element={ <Donate/> }/>
           <Route path="/make" element={ <Make/> }/>
           <Route path="/admin" element={<ProtectedAdmin/>}/>
           <Route path="/our-team" element={ <FoundersPage/> }/>
-          <Route path="/services" element={ <Services/> }/>
+          <Route path="/services" element={ <Services/> }/>y
           <Route path="/community" element={ <CommunityGuidelines/> }/>
           <Route path="/helpcenter" element={ <HelpCenter/> }/>
           <Route path="/intro" element={ <DonationIntro/> }/>
           <Route path="/terms" element={ <TermsAndConditions/> }/>
           <Route path="/makeintro" element={ <MakeIntro/> }/>
-          <Route path="/termsMake" element={ <TermsAnd/> }/>
+          <Route path="/termsMake" element={ <TermsAnd/> }/> */}
          </Routes>
       
       </BrowserRouter>

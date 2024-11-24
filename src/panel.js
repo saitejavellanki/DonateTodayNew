@@ -24,6 +24,14 @@ function Panels() {
         >
           A comprehensive list of interview panels to guide you through the process.
         </Text>
+        <Text
+          fontSize="4xl"
+          fontWeight="extrabold"
+          mb={1}
+          color="gray.600"
+        >
+          Unofficial
+        </Text>
 
         <SimpleGrid
           columns={{ base: 1, sm: 2, lg: 3, xl: 4 }}

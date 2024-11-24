@@ -1,22 +1,30 @@
 import React from 'react';
-import { SimpleGrid, Box, Text, Link } from '@chakra-ui/react';
+import { SimpleGrid, Box, Text, Link, Icon } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { MdOutlineScreenSearchDesktop } from 'react-icons/md';
 
 function Panels() {
   const panels = Array.from({ length: 50 }, (_, i) => i + 1);
 
   return (
-    <Box p={8} bg="gray.50" minH="100vh">
-      <Box maxW="7xl" mx="auto">
+    <Box p={8} bg="gray.100" minH="100vh">
+      <Box maxW="7xl" mx="auto" textAlign="center">
         <Text
-          fontSize="3xl"
-          fontWeight="bold"
-          mb={8}
-          color="gray.800"
+          fontSize="4xl"
+          fontWeight="extrabold"
+          mb={4}
+          color="green.600"
         >
-          Interview Panels
+          Explore TCS Interview Panels
         </Text>
-        
+        <Text
+          fontSize="lg"
+          color="gray.600"
+          mb={10}
+        >
+          A comprehensive list of interview panels to guide you through the process.
+        </Text>
+
         <SimpleGrid
           columns={{ base: 1, sm: 2, lg: 3, xl: 4 }}
           spacing={6}
@@ -31,22 +39,40 @@ function Panels() {
             >
               <Box
                 p={6}
-                bg="white"
+                bgGradient="linear(to-br, green.50, white)"
                 borderRadius="lg"
-                boxShadow="sm"
-                transition="all 0.2s"
+                boxShadow="lg"
+                transition="all 0.3s"
                 _hover={{
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'md',
-                  borderColor: 'blue.200',
+                  transform: 'scale(1.05)',
+                  boxShadow: 'xl',
+                  borderColor: 'green.400',
                 }}
                 border="1px solid"
-                borderColor="gray.200"
+                borderColor="green.200"
               >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  mb={4}
+                  bg="green.100"
+                  borderRadius="full"
+                  p={4}
+                  w={12}
+                  h={12}
+                >
+                  <Icon
+                    as={MdOutlineScreenSearchDesktop}
+                    w={6}
+                    h={6}
+                    color="green.600"
+                  />
+                </Box>
                 <Text
                   fontSize="xl"
-                  fontWeight="semibold"
-                  color="gray.800"
+                  fontWeight="bold"
+                  color="green.700"
                   mb={2}
                 >
                   Panel {panel}
